@@ -191,39 +191,43 @@ const ReceiptPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 relative">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Receipt Generator</h1>
-        <div className="flex items-center">
-          <Button
-            onClick={handleDownloadPDF}
-            disabled={isDownloading}
-            className="mr-4"
-          >
-            {isDownloading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Downloading...
-              </>
-            ) : (
-              "Download Receipt PDF"
-            )}
-          </Button>
-          <button
-            onClick={() => navigate("/")}
-            className="bg-blue-500 text-white p-2 rounded-full shadow-lg hover:bg-blue-600"
-            aria-label="Switch to Bill Generator"
-          >
-            <FileText size={24} />
-          </button>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
+      <div className="container mx-auto px-4 py-8 relative">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold gradient-text">PayFlow Receipts</h1>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="accent"
+              onClick={handleDownloadPDF}
+              disabled={isDownloading}
+              className="font-semibold"
+            >
+              {isDownloading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating PDF...
+                </>
+              ) : (
+                "Download Receipt PDF"
+              )}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => navigate("/")}
+              size="icon"
+              className="rounded-full"
+              title="Switch to Invoice Generator"
+            >
+              <FileText size={20} />
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-md">
-          <form>
-            <div className="mb-6">
-              <h2 className="text-2xl font-semibold mb-4">Your Company</h2>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="w-full lg:w-1/2 card-modern">
+            <form className="space-y-8">
+              <div className="mb-8">
+                <h2 className="text-2xl font-semibold gradient-text mb-6">Your Company</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FloatingLabelInput
                   id="yourCompanyName"
@@ -284,8 +288,8 @@ const ReceiptPage = () => {
               />
             </div>
 
-            <div className="mb-6">
-              <h2 className="text-2xl font-semibold mb-4">Bill To</h2>
+              <div className="mb-8">
+                <h2 className="text-2xl font-semibold gradient-text mb-6">Bill To</h2>
               <FloatingLabelInput
                 id="billTo"
                 label="Bill To"
@@ -295,10 +299,10 @@ const ReceiptPage = () => {
               />
             </div>
 
-            <div className="mb-6">
-              <h2 className="text-2xl font-semibold mb-4">
-                Invoice Information
-              </h2>
+              <div className="mb-8">
+                <h2 className="text-2xl font-semibold gradient-text mb-6">
+                  Invoice Information
+                </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <FloatingLabelInput
                   id="invoiceNumber"

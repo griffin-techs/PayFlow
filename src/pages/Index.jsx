@@ -312,22 +312,28 @@ const Index = () => {
       <Header />
       <div className="container mx-auto px-4 py-8 relative">
       <div className="fixed top-20 left-4 flex flex-col gap-3 z-40">
-        <button
+        <Button
+          variant="destructive"
+          size="icon"
           onClick={clearForm}
-          className="glass-card p-3 rounded-full elegant-shadow hover:scale-110 transition-smooth bg-destructive/10 hover:bg-destructive/20 text-destructive group"
-          aria-label="Clear Form"
+          className="rounded-full hover:scale-110 transition-smooth"
+          title="Clear Form"
         >
-          <FiTrash2 size={20} className="group-hover:scale-110 transition-smooth" />
-        </button>
-        <button
+          <FiTrash2 size={20} />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
           onClick={fillDummyData}
-          className="glass-card p-3 rounded-full elegant-shadow hover:scale-110 transition-smooth bg-primary/10 hover:bg-primary/20 text-primary group"
-          aria-label="Fill with Dummy Data"
+          className="rounded-full hover:scale-110 transition-smooth"
+          title="Fill with Dummy Data"
         >
-          <FiEdit size={20} className="group-hover:scale-110 transition-smooth" />
-        </button>
+          <FiEdit size={20} />
+        </Button>
       </div>
-      <button
+      <Button
+        variant="accent"
+        size="icon"
         onClick={() =>
           navigate("/receipt", {
             state: {
@@ -339,19 +345,19 @@ const Index = () => {
                 items,
                 taxPercentage,
                 notes,
-                selectedCurrency, // Ensure this is passed
+                selectedCurrency,
               },
             },
           })
         }
-        className="fixed top-20 right-4 glass-card p-3 rounded-full elegant-shadow hover:scale-110 transition-smooth bg-green-500/10 hover:bg-green-500/20 text-green-600 group z-40"
-        aria-label="Switch to Receipt"
+        className="fixed top-20 right-4 rounded-full z-40"
+        title="Switch to Receipt Generator"
       >
-        <FiFileText size={20} className="group-hover:scale-110 transition-smooth" />
-      </button>
+        <FiFileText size={20} />
+      </Button>
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/2 glass-card p-8 rounded-xl elegant-shadow animate-fade-in">
-          <div className="space-y-6">
+        <div className="w-full md:w-1/2 card-modern animate-fade-in">
+          <div className="space-y-8">
             <BillToSection
               billTo={billTo}
               handleInputChange={handleInputChange(setBillTo)}
@@ -364,8 +370,8 @@ const Index = () => {
               billTo={billTo}
             />
 
-            <div className="glass-card p-6 rounded-xl elegant-shadow animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            <div className="card-modern animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <h2 className="text-2xl font-semibold mb-6 gradient-text">
                 Invoice Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -395,8 +401,8 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="glass-card p-6 rounded-xl elegant-shadow animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">Your Company</h2>
+            <div className="card-modern animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <h2 className="text-2xl font-semibold mb-6 gradient-text">Your Company</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FloatingLabelInput
                   id="yourCompanyName"
@@ -434,8 +440,8 @@ const Index = () => {
             />
             </div>
 
-            <div className="glass-card p-6 rounded-xl elegant-shadow animate-fade-in" style={{ animationDelay: '1s' }}>
-              <h3 className="text-lg font-medium mb-4 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">Totals</h3>
+            <div className="card-modern animate-fade-in" style={{ animationDelay: '1s' }}>
+              <h3 className="text-lg font-semibold mb-4 gradient-text">Totals</h3>
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-border/30">
                   <span className="text-muted-foreground">Sub Total:</span>
@@ -464,22 +470,23 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="glass-card p-6 rounded-xl elegant-shadow animate-fade-in" style={{ animationDelay: '1.2s' }}>
+            <div className="card-modern animate-fade-in" style={{ animationDelay: '1.2s' }}>
               <div className="flex items-center mb-4">
-                <h3 className="text-lg font-medium bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">Notes</h3>
-                <button
-                  type="button"
+                <h3 className="text-lg font-semibold gradient-text">Notes</h3>
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={refreshNotes}
-                  className="ml-3 p-2 rounded-full hover:bg-accent transition-smooth hover:scale-110"
+                  className="ml-3 rounded-full hover:scale-110"
                   title="Refresh Notes"
                 >
-                  <RefreshCw size={16} className="text-primary" />
-                </button>
+                  <RefreshCw size={16} />
+                </Button>
               </div>
               <textarea
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded-lg bg-input transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
+                className="w-full px-4 py-3 border-2 border-border/30 rounded-xl bg-input/50 transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none hover:border-border/50"
                 rows="4"
                 placeholder="Add notes or special instructions..."
               ></textarea>
@@ -489,19 +496,19 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 glass-card p-8 rounded-xl elegant-shadow overflow-y-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-            Template Gallery
+        <div className="w-full md:w-1/2 card-modern overflow-y-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-3xl font-bold mb-6 gradient-text">
+            Choose Template
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {templates.map((template, index) => (
               <div
                 key={index}
-                className="template-card glass-card p-4 rounded-xl cursor-pointer hover:shadow-xl transition-smooth hover:scale-105 hover:-translate-y-1 group animate-fade-in"
+                className="glass-card p-4 rounded-2xl cursor-pointer hover:shadow-xl transition-smooth hover:scale-105 hover:-translate-y-1 group animate-fade-in border-2 border-transparent hover:border-accent/30"
                 style={{ animationDelay: `${0.3 + index * 0.1}s` }}
                 onClick={() => handleTemplateClick(index + 1)}
               >
-                <div className="relative overflow-hidden rounded-lg mb-3">
+                <div className="relative overflow-hidden rounded-xl mb-3 bg-gradient-to-br from-muted/50 to-muted">
                   <img
                     src={`/assets/template${index + 1}-preview.png`}
                     alt={template.name}
@@ -511,9 +518,14 @@ const Index = () => {
                         : "h-50"
                     } object-cover transition-smooth group-hover:scale-110`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-smooth"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-smooth"></div>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-smooth">
+                    <div className="w-6 h-6 bg-accent/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-center font-medium text-foreground group-hover:text-primary transition-smooth">
+                <p className="text-center font-semibold text-foreground group-hover:gradient-text transition-smooth">
                   {template.name}
                 </p>
               </div>

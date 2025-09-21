@@ -11,10 +11,10 @@ const Header = () => {
             <Sparkles className="h-4 w-4 text-primary-glow absolute -top-1 -right-1 animate-pulse" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Invoice Generator
+            <h1 className="text-3xl font-bold gradient-text">
+              PayFlow
             </h1>
-            <p className="text-sm text-muted-foreground">Create professional invoices & receipts</p>
+            <p className="text-sm text-muted-foreground font-medium">Professional Invoice & Receipt Generator</p>
           </div>
         </div>
         
