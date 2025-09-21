@@ -228,99 +228,99 @@ const ReceiptPage = () => {
             <form className="space-y-8">
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold gradient-text mb-6">Your Company</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FloatingLabelInput
+                    id="yourCompanyName"
+                    label="Name"
+                    value={yourCompany.name}
+                    onChange={handleInputChange(setYourCompany)}
+                    name="name"
+                  />
+                  <FloatingLabelInput
+                    id="yourCompanyPhone"
+                    label="Phone"
+                    value={yourCompany.phone}
+                    onChange={handleInputChange(setYourCompany)}
+                    name="phone"
+                  />
+                </div>
                 <FloatingLabelInput
-                  id="yourCompanyName"
-                  label="Name"
-                  value={yourCompany.name}
+                  id="yourCompanyAddress"
+                  label="Address"
+                  value={yourCompany.address}
                   onChange={handleInputChange(setYourCompany)}
-                  name="name"
+                  name="address"
+                  className="mt-4"
                 />
+                <div className="relative mt-4">
+                  <FloatingLabelInput
+                    id="yourCompanyGST"
+                    label="GST No."
+                    value={yourCompany.gst}
+                    onChange={(e) => {
+                      const value = e.target.value.slice(0, 15);
+                      handleInputChange(setYourCompany)({
+                        target: { name: "gst", value },
+                      });
+                    }}
+                    name="gst"
+                    maxLength={15}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const newGST = generateGSTNumber();
+                      setYourCompany(prev => ({ ...prev, gst: newGST }));
+                    }}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 rounded-full hover:bg-gray-200"
+                    title="Generate new GST number"
+                  >
+                    <RotateCw size={16} />
+                  </button>
+                </div>
                 <FloatingLabelInput
-                  id="yourCompanyPhone"
-                  label="Phone"
-                  value={yourCompany.phone}
-                  onChange={handleInputChange(setYourCompany)}
-                  name="phone"
+                  id="cashier"
+                  label="Cashier"
+                  value={cashier}
+                  onChange={(e) => setCashier(e.target.value)}
+                  name="cashier"
+                  className="mt-4"
                 />
               </div>
-              <FloatingLabelInput
-                id="yourCompanyAddress"
-                label="Address"
-                value={yourCompany.address}
-                onChange={handleInputChange(setYourCompany)}
-                name="address"
-                className="mt-4"
-              />
-              <div className="relative mt-4">
-                <FloatingLabelInput
-                  id="yourCompanyGST"
-                  label="GST No."
-                  value={yourCompany.gst}
-                  onChange={(e) => {
-                    const value = e.target.value.slice(0, 15);
-                    handleInputChange(setYourCompany)({
-                      target: { name: "gst", value },
-                    });
-                  }}
-                  name="gst"
-                  maxLength={15}
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    const newGST = generateGSTNumber();
-                    setYourCompany(prev => ({ ...prev, gst: newGST }));
-                  }}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 rounded-full hover:bg-gray-200"
-                  title="Generate new GST number"
-                >
-                  <RotateCw size={16} />
-                </button>
-              </div>
-              <FloatingLabelInput
-                id="cashier"
-                label="Cashier"
-                value={cashier}
-                onChange={(e) => setCashier(e.target.value)}
-                name="cashier"
-                className="mt-4"
-              />
-            </div>
 
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold gradient-text mb-6">Bill To</h2>
-              <FloatingLabelInput
-                id="billTo"
-                label="Bill To"
-                value={billTo}
-                onChange={(e) => setBillTo(e.target.value)}
-                name="billTo"
-              />
-            </div>
+                <FloatingLabelInput
+                  id="billTo"
+                  label="Bill To"
+                  value={billTo}
+                  onChange={(e) => setBillTo(e.target.value)}
+                  name="billTo"
+                />
+              </div>
 
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold gradient-text mb-6">
                   Invoice Information
                 </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <FloatingLabelInput
-                  id="invoiceNumber"
-                  label="Invoice Number"
-                  value={invoice.number}
-                  onChange={handleInputChange(setInvoice)}
-                  name="number"
-                />
-                <FloatingLabelInput
-                  id="invoiceDate"
-                  label="Invoice Date"
-                  type="date"
-                  value={invoice.date}
-                  onChange={handleInputChange(setInvoice)}
-                  name="date"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <FloatingLabelInput
+                    id="invoiceNumber"
+                    label="Invoice Number"
+                    value={invoice.number}
+                    onChange={handleInputChange(setInvoice)}
+                    name="number"
+                  />
+                  <FloatingLabelInput
+                    id="invoiceDate"
+                    label="Invoice Date"
+                    type="date"
+                    value={invoice.date}
+                    onChange={handleInputChange(setInvoice)}
+                    name="date"
+                  />
+                </div>
               </div>
-            </div>
 
             <ItemDetails
               items={items}
