@@ -388,119 +388,120 @@ const ReceiptPage = () => {
               ></textarea>
             </div>
           </form>
-        </div>
-
-        <div className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Receipt Preview</h2>
-          <div className="mb-4 flex items-center">
-            <h3 className="text-lg font-medium mr-4">Receipt Type</h3>
-            <div className="flex gap-4">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="theme"
-                  value="Receipt1"
-                  checked={theme === "Receipt1"}
-                  onChange={() => setTheme("Receipt1")}
-                  className="mr-2"
-                />
-                Receipt1
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="theme"
-                  value="Receipt2"
-                  checked={theme === "Receipt2"}
-                  onChange={() => setTheme("Receipt2")}
-                  className="mr-2"
-                />
-                Receipt2
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="theme"
-                  value="Receipt3"
-                  checked={theme === "Receipt3"}
-                  onChange={() => setTheme("Receipt3")}
-                  className="mr-2"
-                />
-                Receipt3
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="theme"
-                  value="Receipt4"
-                  checked={theme === "Receipt4"}
-                  onChange={() => setTheme("Receipt4")}
-                  className="mr-2"
-                />
-                Receipt4
-              </label>
-            </div>
           </div>
-          <div ref={receiptRef} className="w-[380px] mx-auto border shadow-lg">
-            {theme === "Receipt1" && (
-              <Receipt1
-                data={{
-                  billTo,
-                  invoice,
-                  yourCompany,
-                  cashier,
-                  items,
-                  taxPercentage,
-                  notes,
-                  footer,
-                  selectedCurrency,
-                }}
-              />
-            )}
-            {theme === "Receipt2" && (
-              <Receipt2
-                data={{
-                  billTo,
-                  invoice,
-                  yourCompany,
-                  cashier,
-                  items,
-                  taxPercentage,
-                  notes,
-                  footer,
-                  selectedCurrency,
-                }}
-              />
-            )}
-            {theme === "Receipt3" && (
-              <Receipt3
-                data={{
-                  billTo,
-                  invoice,
-                  yourCompany,
-                  cashier,
-                  items,
-                  taxPercentage,
-                  notes,
-                  footer,
-                  selectedCurrency,
-                }}
-              />
-            )}
-            {theme === "Receipt4" && (
-              <Receipt4
-                data={{
-                  billTo,
-                  invoice,
-                  yourCompany,
-                  items,
-                  taxPercentage,
-                  footer,
-                  cashier,
-                  selectedCurrency,
-                }}
-              />
-            )}
+
+          <div className="w-full lg:w-1/2 card-modern">
+            <h2 className="text-2xl font-semibold gradient-text mb-6">Receipt Preview</h2>
+            <div className="mb-4 flex items-center">
+              <h3 className="text-lg font-medium mr-4">Receipt Type</h3>
+              <div className="flex gap-4">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="theme"
+                    value="Receipt1"
+                    checked={theme === "Receipt1"}
+                    onChange={() => setTheme("Receipt1")}
+                    className="mr-2"
+                  />
+                  Receipt1
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="theme"
+                    value="Receipt2"
+                    checked={theme === "Receipt2"}
+                    onChange={() => setTheme("Receipt2")}
+                    className="mr-2"
+                  />
+                  Receipt2
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="theme"
+                    value="Receipt3"
+                    checked={theme === "Receipt3"}
+                    onChange={() => setTheme("Receipt3")}
+                    className="mr-2"
+                  />
+                  Receipt3
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="theme"
+                    value="Receipt4"
+                    checked={theme === "Receipt4"}
+                    onChange={() => setTheme("Receipt4")}
+                    className="mr-2"
+                  />
+                  Receipt4
+                </label>
+              </div>
+            </div>
+            <div ref={receiptRef} className="w-[380px] mx-auto border shadow-lg">
+              {theme === "Receipt1" && (
+                <Receipt1
+                  data={{
+                    billTo,
+                    invoice,
+                    yourCompany,
+                    cashier,
+                    items,
+                    taxPercentage,
+                    notes,
+                    footer,
+                    selectedCurrency,
+                  }}
+                />
+              )}
+              {theme === "Receipt2" && (
+                <Receipt2
+                  data={{
+                    billTo,
+                    invoice,
+                    yourCompany,
+                    cashier,
+                    items,
+                    taxPercentage,
+                    notes,
+                    footer,
+                    selectedCurrency,
+                  }}
+                />
+              )}
+              {theme === "Receipt3" && (
+                <Receipt3
+                  data={{
+                    billTo,
+                    invoice,
+                    yourCompany,
+                    cashier,
+                    items,
+                    taxPercentage,
+                    notes,
+                    footer,
+                    selectedCurrency,
+                  }}
+                />
+              )}
+              {theme === "Receipt4" && (
+                <Receipt4
+                  data={{
+                    billTo,
+                    invoice,
+                    yourCompany,
+                    items,
+                    taxPercentage,
+                    footer,
+                    cashier,
+                    selectedCurrency,
+                  }}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
