@@ -23,7 +23,7 @@
     --muted: 220 13% 95%;
     --muted-foreground: 224 20% 50%;
  
-    --accent: 59 130% 53%;
+    --accent: 168 76% 42%;
     --accent-foreground: 255 255 255;
  
     --destructive: 0 84% 60%;
@@ -37,11 +37,11 @@
     
     /* Custom Design Tokens */
     --gradient-primary: linear-gradient(135deg, hsl(218 67% 33%), hsl(217 91% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(59 130% 53%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(168 76% 42%));
     --gradient-subtle: linear-gradient(180deg, hsl(220 14% 98%), hsl(220 13% 95%));
     --shadow-elegant: 0 10px 30px -10px hsl(218 67% 33% / 0.15);
     --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.1);
-    --shadow-accent: 0 4px 20px hsl(59 130% 53% / 0.25);
+    --shadow-accent: 0 4px 20px hsl(168 76% 42% / 0.25);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
  
@@ -65,7 +65,7 @@
     --muted: 218 50% 15%;
     --muted-foreground: 220 10% 70%;
  
-    --accent: 59 130% 53%;
+    --accent: 168 76% 42%;
     --accent-foreground: 255 255 255;
  
     --destructive: 0 84% 60%;
@@ -77,11 +77,11 @@
     
     /* Dark Mode Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(218 67% 33%));
-    --gradient-secondary: linear-gradient(135deg, hsl(218 67% 33%), hsl(59 130% 53%));
+    --gradient-secondary: linear-gradient(135deg, hsl(218 67% 33%), hsl(168 76% 42%));
     --gradient-subtle: linear-gradient(180deg, hsl(218 50% 12%), hsl(218 50% 15%));
     --shadow-elegant: 0 10px 30px -10px hsl(217 91% 60% / 0.3);
     --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
-    --shadow-accent: 0 4px 20px hsl(59 130% 53% / 0.4);
+    --shadow-accent: 0 4px 20px hsl(168 76% 42% / 0.4);
   }
 }
  
@@ -118,7 +118,8 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-8 py-3 rounded-xl font-semibold elegant-shadow hover:shadow-xl transition-smooth hover:scale-105 hover:-translate-y-0.5;
+    @apply text-primary-foreground px-8 py-3 rounded-xl font-semibold elegant-shadow hover:shadow-xl transition-smooth hover:scale-105 hover:-translate-y-0.5;
+    background: var(--gradient-primary);
   }
   
   .btn-secondary {
