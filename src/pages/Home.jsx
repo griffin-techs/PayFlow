@@ -26,9 +26,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
+    <div className="min-h-screen bg-background">
       {/* Navigation Header */}
-      <header className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-border bg-card/90 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -63,7 +63,7 @@ const Home = () => {
         {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
+            <h1 className="text-3xl font-bold mb-2 gradient-text">Dashboard</h1>
             <p className="text-muted-foreground">Manage your invoices and track your business performance</p>
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
@@ -88,16 +88,16 @@ const Home = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="card-modern">
+            <Card key={index} className="glass-card">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-muted-foreground text-sm font-medium">{stat.title}</p>
-                    <p className="text-2xl font-bold mt-1">{stat.value}</p>
-                    <p className={`text-sm font-medium mt-1 ${stat.trend === 'up' ? 'text-green-600' : 'text-red-500'}`}>{stat.change}</p>
+                    <p className="text-2xl font-bold mt-1 gradient-text">{stat.value}</p>
+                    <p className={`text-sm font-medium mt-1 ${stat.trend === 'up' ? 'text-primary' : 'text-accent'}`}>{stat.change}</p>
                   </div>
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10">
-                    <stat.icon className={`h-5 w-5 ${stat.trend === 'up' ? 'text-green-600' : 'text-red-500'}`} />
+                  <div className="p-3 rounded-lg bg-primary/10">
+                    <stat.icon className={`h-5 w-5 ${stat.trend === 'up' ? 'text-primary' : 'text-accent'}`} />
                   </div>
                 </div>
               </CardContent>
@@ -108,10 +108,10 @@ const Home = () => {
         {/* Invoices Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <Card className="card-modern">
+            <Card className="glass-card">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle>Invoices</CardTitle>
+                  <CardTitle className="gradient-text">Invoices</CardTitle>
                   <Badge variant="secondary">Free monthly invoices: 0/5</Badge>
                 </div>
                 <CardDescription>
@@ -145,8 +145,8 @@ const Home = () => {
                   </div>
 
                   <TabsContent value="all" className="space-y-4">
-                    <div className="border rounded-lg">
-                      <div className="grid grid-cols-6 gap-4 p-4 text-sm font-medium text-muted-foreground border-b bg-muted/30">
+                    <div className="border border-border rounded-lg">
+                      <div className="grid grid-cols-6 gap-4 p-4 text-sm font-medium text-muted-foreground border-b bg-muted">
                         <div>NUMBER</div>
                         <div>CUSTOMER</div>
                         <div>CREATED</div>
@@ -158,11 +158,11 @@ const Home = () => {
                       <div className="divide-y">
                         {recentInvoices.map((invoice, index) => (
                           <div key={index} className="grid grid-cols-6 gap-4 p-4 hover:bg-muted/50 transition-smooth cursor-pointer">
-                            <div className="font-medium">{invoice.number}</div>
-                            <div>{invoice.customer}</div>
+                            <div className="font-medium text-foreground">{invoice.number}</div>
+                            <div className="text-foreground">{invoice.customer}</div>
                             <div className="text-muted-foreground">{invoice.date}</div>
                             <div className="text-muted-foreground">Due in 30 days</div>
-                            <div className="font-medium">{invoice.amount}</div>
+                            <div className="font-medium gradient-text">{invoice.amount}</div>
                             <div>
                               <Badge 
                                 variant={
@@ -185,9 +185,9 @@ const Home = () => {
           </div>
 
           <div>
-            <Card className="card-modern">
+            <Card className="glass-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 gradient-text">
                   <TrendingUp className="h-5 w-5" />
                   Quick Actions
                 </CardTitle>

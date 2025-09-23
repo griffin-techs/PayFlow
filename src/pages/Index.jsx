@@ -309,9 +309,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <div className="container mx-auto px-4 py-8 relative">
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-8 relative">
       <div className="fixed top-20 left-4 flex flex-col gap-3 z-40">
         <Button
           variant="destructive"

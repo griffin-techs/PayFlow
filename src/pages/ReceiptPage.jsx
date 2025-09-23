@@ -191,7 +191,7 @@ const ReceiptPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 relative">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold gradient-text">PayFlow Receipts</h1>
@@ -290,6 +290,21 @@ const ReceiptPage = () => {
 
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold gradient-text mb-6">Bill To</h2>
+                <div className="mb-4">
+                  <label className="text-sm font-medium mb-2 block">Currency</label>
+                  <select
+                    value={selectedCurrency}
+                    onChange={(e) => setSelectedCurrency(e.target.value)}
+                    className="w-full p-3 border rounded-lg bg-input focus:border-primary focus:ring-2 focus:ring-primary/20 transition-smooth"
+                  >
+                    <option value="USD">US Dollar ($)</option>
+                    <option value="EUR">Euro (€)</option>
+                    <option value="GBP">British Pound (£)</option>
+                    <option value="KES">Kenyan Shilling (KSh)</option>
+                    <option value="CHF">Swiss Franc (CHF)</option>
+                    <option value="INR">Indian Rupee (₹)</option>
+                  </select>
+                </div>
                 <FloatingLabelInput
                   id="billTo"
                   label="Bill To"
