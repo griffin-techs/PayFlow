@@ -105,19 +105,8 @@ const ToastDescription = React.forwardRef(({ className, ...props }, ref) => (
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
-type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
-
-type ToastActionElement = React.ReactElement<typeof ToastAction>
-
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
-
-type ToasterToast = ToastProps & {
-  id: string
-  title?: React.ReactNode
-  description?: React.ReactNode
-  action?: ToastActionElement
-}
 
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
@@ -265,7 +254,6 @@ function useToast() {
 }
 
 export {
-  type ToasterToast,
   useToast,
   toast,
   ToastProvider,
